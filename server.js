@@ -1,5 +1,6 @@
 const express = require("express");
 const cors = require("cors");
+const logger = require('morgan');
 
 const app = express();
 const db = require("./app/model");
@@ -11,6 +12,7 @@ var corsOptions = {
 };
 
 app.use(cors(corsOptions));
+app.use(logger('dev'));
 
 // parse requests of content-type - application/json
 app.use(express.json());
